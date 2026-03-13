@@ -58,7 +58,7 @@
   },
   "jest": {
     "preset": "jest-expo",
-    "setupFilesAfterEach": [
+    "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ],
     "transformIgnorePatterns": [

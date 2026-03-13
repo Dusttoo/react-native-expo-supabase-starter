@@ -1,5 +1,4 @@
-import { useOfferings, usePurchasePackage, useRestorePurchases, useSubscriptionTier } from '@/hooks/useSubscription'
-import { SubscriptionPackage } from '@/types'
+import { useState, useEffect } from 'react'
 import { router } from 'expo-router'
 import {
   ActivityIndicator,
@@ -10,6 +9,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
+import { useOfferings, usePurchasePackage, useRestorePurchases, useSubscriptionTier } from '@/hooks/useSubscription'
+import { SubscriptionPackage } from '@/types'
 
 const FEATURE_LIST: Record<'pro' | 'premium', string[]> = {
   pro: [
@@ -75,9 +76,9 @@ export default function PaywallScreen() {
   const [selectedId, setSelectedId] = useState<string | undefined>(defaultPkg?.identifier)
 
   // Sync default selection when offerings load
-  useState(() => {
+  useEffect(() => {
     if (!selectedId && defaultPkg) setSelectedId(defaultPkg.identifier)
-  })
+  }, [defaultPkg])
 
   const featuresKey = tier === 'free' ? 'pro' : 'premium'
   const headline = tier === 'free' ? 'Upgrade to Pro' : 'Upgrade to Premium'
@@ -174,9 +175,6 @@ export default function PaywallScreen() {
     </View>
   )
 }
-
-// useState is used above — make sure to import it
-import { useState } from 'react'
 
 const styles = StyleSheet.create({
   container: {

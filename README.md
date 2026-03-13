@@ -298,6 +298,27 @@ For integration-style tests that exercise auth flows or multiple layers together
 
 ---
 
+## Running the App
+
+Start the Expo development server:
+
+```bash
+npx expo start
+```
+
+Then press:
+- `i` to open in iOS Simulator
+- `a` to open on Android Emulator
+- Scan the QR code with the Expo Go app to run on a physical device
+
+> **Note:** `react-native-purchases` (RevenueCat) requires a physical device or a development build for subscription flows to work. Expo Go runs RevenueCat in Preview API Mode, which simulates the SDK but does not make real StoreKit or Play Billing calls. To test real purchases you will need a development build:
+> ```bash
+> npx expo run:ios
+> npx expo run:android
+> ```
+
+---
+
 ## Running Tests
 
 ```bash
@@ -309,6 +330,14 @@ Watch mode:
 ```bash
 npm test -- --watch
 ```
+
+Coverage report:
+
+```bash
+npm run test:coverage
+```
+
+Tests live in `tests/services/` and follow the chainable mock pattern described in the Testing Approach section above. The test suite covers `AuthService`, `ProfileService`, and `SubscriptionService` — 22 tests, no network calls.
 
 ---
 
