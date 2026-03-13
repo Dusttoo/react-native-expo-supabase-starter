@@ -119,6 +119,13 @@ Start the development server:
 npx expo start
 ```
 
+### Service-specific setup
+
+Two services require configuration in their respective dashboards before the app will work end-to-end:
+
+- **[Supabase setup](docs/supabase-setup.md)** — create the `profiles` table, RLS policies, and the sign-up trigger
+- **[RevenueCat setup](docs/revenuecat-setup.md)** — create entitlements, attach products, and configure your offering
+
 ---
 
 ## The Testing Approach
