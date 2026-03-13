@@ -100,9 +100,18 @@ Required variables:
 ```
 EXPO_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 EXPO_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-EXPO_PUBLIC_REVENUECAT_IOS_KEY=your-ios-key
+EXPO_PUBLIC_REVENUECAT_API_KEY_IOS=your-ios-key
 EXPO_PUBLIC_REVENUECAT_ANDROID_KEY=your-android-key
 ```
+
+Before your first build, update the bundle identifiers in `app.json` to match your app:
+
+```json
+"ios": { "bundleIdentifier": "com.yourcompany.yourapp" },
+"android": { "package": "com.yourcompany.yourapp" }
+```
+
+Leaving these as `com.yourcompany.starter` will cause conflicts if you attempt to submit to the App Store or Play Store.
 
 Start the development server:
 

@@ -83,6 +83,10 @@ export default function RootLayout() {
         <Stack.Screen name="(auth)" />
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="index" />
+        <Stack.Screen
+          name="paywall"
+          options={{ presentation: 'modal', headerShown: false }}
+        />
       </Stack>
       <StatusBar style="auto" />
     </QueryClientProvider>
